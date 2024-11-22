@@ -35,3 +35,48 @@ function startNewGame() {
 
     console.log('New game started. Secret number:', secretNumber); 
 }
+
+
+function handleGuess(e) {
+    e.preventDefault();
+    if (gameOver) return;
+
+    const userGuess = parseInt(guessInput.value);
+    if (isNaN(userGuess) || userGuess < 1 || userGuess > 100) {
+        setMessage('Please enter a valid number between 1 and 100.');
+        return;
+    }
+
+    attempts--;
+    attemptsElement.textContent = attempts;
+
+    if (userGuess === secretNumber) {
+        endGame(`Congratulations! You guessed the number ${secretNumber}!`);
+    } else if (attempts === 0) {
+        endGame(`Game over! The number was ${secretNumber}.`);
+    } else if (userGuess < secretNumber) {
+        setMessage('Too low! Try a higher number.');
+    } else {
+        setMessage('Too high! Try a lower number.');
+    }
+
+    guessInput.value = '';
+}
+
+function setMessage(msg) {
+    messageElement.textContent = msg;
+    messageElement.style.animation = 'none';
+    messageElement.offsetHeight;
+    messageElement.style.animation = null;
+}
+
+function endGame(msg) {
+    setMessage(msg);
+    messageElement.classList.add('game-over');
+    gameOver = true;
+    guessInput.disabled = true;
+    guessForm.querySelector('button').disabled = true;
+    newGameBtn.style.display = 'inline-block';
+}
+
+
