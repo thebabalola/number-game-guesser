@@ -71,6 +71,7 @@ button:disabled {
 }
 
 .new-game-btn {
+	width: 150px;
     margin-top: 20px;
     background-color: #008CBA;
 }
