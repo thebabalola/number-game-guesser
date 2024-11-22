@@ -18,8 +18,12 @@ body {
 }
 
 .game-container {
+	display: flex;
+	flex-direction: column;
+	justify-content: space-evenly;
     background-color: white;
     border-radius: 10px;
+	min-height: 200px;
     padding: 20px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
@@ -36,11 +40,13 @@ input[type="number"] {
 }
 
 button {
-    padding: 5px 10px;
+	width: 110px;
+    padding: 10px 10px;
     font-size: 16px;
     background-color: #4CAF50;
     color: white;
     border: none;
+	border-radius: 5px;
     cursor: pointer;
     transition: background-color 0.3s;
 }
@@ -53,3 +59,49 @@ button:disabled {
     background-color: #cccccc;
     cursor: not-allowed;
 }
+
+
+.message {
+    font-weight: bold;
+    margin-top: 20px;
+}
+
+.game-over {
+    color: #ff0000;
+}
+
+.new-game-btn {
+    margin-top: 20px;
+    background-color: #008CBA;
+}
+
+.new-game-btn:hover {
+    background-color: #007B9A;
+}
+
+.difficulty-selector {
+    margin-bottom: 20px;
+}
+
+#difficulty {
+	border-radius: 5px;
+	padding: 7px;
+}
+select {
+    padding: 5px;
+    font-size: 16px;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+#guess-form input {
+	border-radius: 5px;
+	padding: 8px;
+}
+.message, .new-game-btn {
+    animation: fadeIn 0.5s;
+}
+
