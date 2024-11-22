@@ -4,10 +4,38 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Number Guesser Game</title>
+	
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
- 
+
+	<div class="App">
+        <h1>Number Guesser Game</h1>
+
+        <div class="game-container">
+            <div class="difficulty-selector">
+                <label>
+                    Difficulty:
+                    <select id="difficulty">
+                        <option value="easy">Easy (15 attempts)</option>
+                        <option value="medium" selected>Medium (10 attempts)</option>
+                        <option value="hard">Hard (5 attempts)</option>
+                    </select>
+                </label>
+            </div>
+
+            <p>Guess a number between 1 and 100</p>
+            <p>Attempts remaining: <span id="attempts">10</span></p>
+            <form id="guess-form">
+                <input type="number" id="guess-input" min="1" max="100" required>
+                <button type="submit">Guess</button>
+            </form>
+			
+            <p id="message" class="message"></p>
+            <button id="new-game-btn" class="new-game-btn" style="display: none;">Start New Game</button>
+        </div>
+    </div>
+
     <script src="script.js"></script>
 </body>
 </html>
